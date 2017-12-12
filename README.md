@@ -1,5 +1,5 @@
 # Ares
-> Dota2 AI for playing with friends in Anshun & 314
+> Dota2 AI for playing with friends in Anshun, 314 & 518
 
 ## Features
 + Mainly based on 
@@ -17,4 +17,4 @@
 
 ## Status 
 Alpha version will come before the Spring Festival 2018  
-Try my best to achieve AI for invoker
+Try my best to achieve AI for hard-core heros, i.e, invoker.
