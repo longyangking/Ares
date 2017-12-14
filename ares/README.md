@@ -1,5 +1,8 @@
 # Details
 
+## Files
+The names of all script files should follow the principles defined in Dota2 Bot scripting official [wiki](https://developer.valvesoftware.com/wiki/Dota_Bot_Scripting). But for extra utility files, it's not restricited.
+
 + ```roledefs.lua```
 Role definitions of heros in team
 
@@ -18,35 +21,5 @@ Generic usage of item and ability
 + ```genericutils.lua```
 Generic useful functions
 
-+ ```mode_push.lua```
-The decision-making preference on push
-
-+ ```mode_ward.lua```
-The decision-making preference on ward plant
-
-+ ```mode_gank.lua```
-The decision-making preference on gank
-
-+ ```mode_laning.lua```
-The decision-making preference on laning
-
-+ ```mode_roshan.lua```
-The decision-making preference on challenging roshan
-
-+ ```mode_rune.lua```
-The decision-making preference on rune
-
-+ ```mode_sideshop.lua```
-The decision-making preference on purchasing item in side shop
-
-+ ```mode_secretshop.lua```
-The decision-making preference on purchasing item in secret shop
-
-+ ```mode_pushmidtower.lua```
-The decision-making preference on pusing middle tower
-
-+ ```mode_pushtoptower.lua```
-The decision-making preference on pusing top tower
-
-+ ```mode_pushbottower.lua```
-The decision-making preference on pusing top tower
+## Challenges and Difficulties
++ Making a good file ```bot_[hero name].lua``` to replace or add official bots is a hard thing
