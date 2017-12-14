@@ -7,6 +7,11 @@
     + [Dota AI Fun](https://github.com/tontyoutoure/DOTA2-AI-Fun)
     + [Dota2_Bots](https://github.com/furiouspuppy/Dota2_Bots)
 
+## How to use
++ Download the source codes into the directory ```game\dota\scripts\vscripts\bots```, then start game locally
+
++ Or, choose the *__Ares__* bot scripts from Dota2 workshop (Not upload yet)
+
 ## Useful resources
 + [Dota2 Wiki](https://dota2.gamepedia.com/Dota_2_Wiki)
 + [Dota2 Terminology (Chinese Meanings)](http://bbs.duowan.com/thread-35786367-1-1.html)
