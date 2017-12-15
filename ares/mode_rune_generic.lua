@@ -1,4 +1,8 @@
 ----------------------------------------------------------------------------
+--	Ranked Matchmaking AI v1.0a
+--	Author: adamqqq		Email:adamqqq@163.com
+----------------------------------------------------------------------------
+-------
 _G._savedEnv = getfenv()
 module( "mode_generic_rune", package.seeall )
 require(GetScriptDirectory() ..  "/utility")

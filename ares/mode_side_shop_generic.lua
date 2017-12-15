@@ -1,3 +1,8 @@
+----------------------------------------------------------------------------
+--	Ranked Matchmaking AI v1.0a
+--	Author: adamqqq		Email:adamqqq@163.com
+----------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------
 require(GetScriptDirectory() ..  "/utility")
 function GetDesire()
 
@@ -15,7 +20,7 @@ function GetDesire()
 		local d=npcBot:DistanceFromSideShop()
 		if d<2500
 		then
-			desire = (2500-d)/2500*0.3+0.3;					
+			desire = (2500-d)/2500*0.3+0.3;					--根据离边路商店的距离返回欲望值
 		end
 	end
 

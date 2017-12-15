@@ -23,3 +23,6 @@
 ## Status 
 Alpha version will come before the Spring Festival 2018  
 Try my best to achieve AI for hard-core heros, i.e, invoker.
+
+## License
+GPL 3.0

@@ -1,3 +1,6 @@
+----------------------------------------------------------------------------------------------------
+-- Author:Arizona Fauzie  BOT EXPERIMENT Link:http://steamcommunity.com/sharedfiles/filedetails/?id=837040016
+----------------------------------------------------------------------------------------------------
 if GetBot():IsInvulnerable() or not GetBot():IsHero() or not string.find(GetBot():GetUnitName(), "hero") or  GetBot():IsIllusion() then
 	return;
 end

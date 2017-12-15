@@ -358,6 +358,7 @@ hero_pool_2={
 	"npc_dota_hero_death_prophet",
 	"npc_dota_hero_alchemist",
 	"npc_dota_hero_arc_warden",
+	"npc_dota_hero_invoker"
 }
 hero_pool_3={
 	"npc_dota_hero_huskar",
@@ -423,7 +424,7 @@ function Think()
 end
 
 
-function AllPickLogic()
+function AllPickLogic() -- Hero selection in ALL PICK
 	if(debug_mode==false)
 	then
 		if(GameTime()<50 and IsHumanPlayerReady()==false or GameTime()<20)
@@ -443,7 +444,7 @@ function AllPickLogic()
 				
 				local number
 				local temphero
-				for j=1,#hero_pool_new[i],1
+				for j=1,#hero_pool_new[i],1 -- Pick hero based on team positions
 				do
 					number=RandomInt(1,#hero_pool_new[i])
 					temphero=hero_pool_new[i][number]
@@ -479,12 +480,12 @@ function AllPickLogic()
 end
 
 ----------------------------------------------------------------------------------------------------
-function PickHero(iPlayerNumber)
+function PickHero(iPlayerNumber)	-- Pick a hero for specific player randomly
 	SelectHero( iPlayerNumber,GetRandomHero())
 	return
 end
 
-function GetPicks()
+function GetPicks()		-- Get names of picked heros
     local selectedHeroes = {}
 	for i=0,20,1
 	do
@@ -499,7 +500,7 @@ function GetPicks()
     return selectedHeroes;
 end
 
-function GetRandomHero()
+function GetRandomHero()	-- Pick a hero randomly
     local hero;
     local picks = GetPicks();
 	local selectedHeroes = {};
@@ -528,23 +529,23 @@ function GetRandomHero()
     return hero;
 end
 
-function IsHumanPlayerReady()
+function IsHumanPlayerReady() 
 	local number,playernumber=0,0
 	local IDs=GetTeamPlayers(GetTeam());
 	for i,id in pairs(IDs)
 	do
-        if(IsPlayerBot(id)==false)
+        if(IsPlayerBot(id)==false) -- Is a player?
 		then
 			local hName = GetSelectedHeroName(id)
 			playernumber=playernumber+1
-			if (hName ~="")
+			if (hName ~="")		-- Has picked a hero?
 			then
 				number=number+1
 			end
 		end
     end
 	
-	if(number>=playernumber)
+	if(number>=playernumber) -- All human players pick heros!
 	then
 		return true
 	else
