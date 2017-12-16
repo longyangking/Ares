@@ -18,22 +18,22 @@ local currentAbilities = {}
 ability_item_usage_generic.InitAbility(Abilities,AbilitiesReal,Talents) 
 
 -- Basic skills
---abilityQuas = npcBot:GetAbilityByName("invoker_quas");
---abilityWex = npcBot:GetAbilityByName("invoker_wex");
---abilityExort = npcBot:GetAbilityByName( "invoker_exort" );
---abilityInvoke = npcBot:GetAbilityByName( "invoker_invoke" );
+abilityQuas = npcBot:GetAbilityByName("invoker_quas");
+abilityWex = npcBot:GetAbilityByName("invoker_wex");
+abilityExort = npcBot:GetAbilityByName( "invoker_exort" );
+abilityInvoke = npcBot:GetAbilityByName( "invoker_invoke" );
 
 -- Special skills
---abilityColdSnap = npcBot:GetAbilityByName( "invoker_cold_snap" );
---abilityGhostWalk = npcBot:GetAbilityByName( "invoker_ghost_walk" );
---abilityTornado = npcBot:GetAbilityByName( "invoker_tornado" );
---abilityEMP = npcBot:GetAbilityByName( "invoker_emp" );
---abilityAlacrity = npcBot:GetAbilityByName( "invoker_alacrity" );
---abilityChaosMeteor = npcBot:GetAbilityByName( "invoker_chaos_meteor" );
---abilitySunStrike = npcBot:GetAbilityByName( "invoker_sun_strike" );
---abilityForgeSpirit = npcBot:GetAbilityByName( "invoker_forge_spirit" );
---abilityIceWall = npcBot:GetAbilityByName( "invoker_ice_wall" );
---abilityDeafeningBlast = npcBot:GetAbilityByName( "invoker_deafening_blast" );
+abilityColdSnap = npcBot:GetAbilityByName( "invoker_cold_snap" );
+abilityGhostWalk = npcBot:GetAbilityByName( "invoker_ghost_walk" );
+abilityTornado = npcBot:GetAbilityByName( "invoker_tornado" );
+abilityEMP = npcBot:GetAbilityByName( "invoker_emp" );
+abilityAlacrity = npcBot:GetAbilityByName( "invoker_alacrity" );
+abilityChaosMeteor = npcBot:GetAbilityByName( "invoker_chaos_meteor" );
+abilitySunStrike = npcBot:GetAbilityByName( "invoker_sun_strike" );
+abilityForgeSpirit = npcBot:GetAbilityByName( "invoker_forge_spirit" );
+abilityIceWall = npcBot:GetAbilityByName( "invoker_ice_wall" );
+abilityDeafeningBlast = npcBot:GetAbilityByName( "invoker_deafening_blast" );
 
 -- The content of abilities:
 -- 1: Quas
@@ -521,4 +521,124 @@ end
 
 function CourierUsageThink() 
 	ability_item_usage_generic.CourierUsageThink()
+end
+
+function AbilityPrepare(AbilitiesReal,cast)
+	-- Basic skills
+	--- abilityQuas = npcBot:GetAbilityByName("invoker_quas");
+	--- abilityWex = npcBot:GetAbilityByName("invoker_wex");
+	--- abilityExort = npcBot:GetAbilityByName( "invoker_exort" );
+	--- abilityInvoke = npcBot:GetAbilityByName( "invoker_invoke" );
+	--- 
+	local npcBot=GetBot()
+	
+	local HighestDesire=0
+	local HighestDesireAbility=0
+	local HighestDesireAbilityBumber=0
+	for i,ability in pairs(AbilitiesReal)
+	do
+		if (cast.Desire[i]~=nil and cast.Desire[i]>HighestDesire)
+		then
+			HighestDesire=cast.Desire[i]
+			HighestDesireAbilityBumber=i
+		end
+	end
+
+	local j=HighestDesireAbilityBumber
+	local ability=AbilitiesReal[j]
+
+	--- Abilities List
+	-- 1: EMP
+	-- 2: Tornado
+	-- 3: Alacrity
+	-- 4: Ghost Walk
+	-- 5: Deafening Blast
+	-- 6: Chaos Meteor
+	-- 7: Cold Snap
+	-- 8: Ice Wall
+	-- 9: Forge Spirit
+	-- 10: Sun Strike
+
+	-- 1: Wex/Wex/Wex
+	if (HighestDesireAbilityBumber == 1)
+	then
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityWex);
+	end
+
+	-- 2: Quas/Wex/Wex
+	if (HighestDesireAbilityBumber == 2)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityWex);
+	end
+
+	-- 3: Wex/Wex/Exort
+	if (HighestDesireAbilityBumber == 3)
+	then
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- 4: Quas/Quas/Wex
+	if (HighestDesireAbilityBumber == 4)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityWex);	
+	end
+
+	-- 5: Quas/Wex/Exort
+	if (HighestDesireAbilityBumber == 5)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- 6: Wex/Exort/Exort
+	if (HighestDesireAbilityBumber == 6)
+	then
+		npcBot:Action_UseAbility(abilityWex);
+		npcBot:Action_UseAbility(abilityExort);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- 7: Quas/Quas/Quas
+	if (HighestDesireAbilityBumber == 7)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityQuas);
+	end
+
+	-- 8: Quas/Quas/Exort
+	if (HighestDesireAbilityBumber == 8)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- 9: Quas/Exort/Exort
+	if (HighestDesireAbilityBumber == 9)
+	then
+		npcBot:Action_UseAbility(abilityQuas);
+		npcBot:Action_UseAbility(abilityExort);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- 10: Exort/Exort/Exort
+	if (HighestDesireAbilityBumber == 9)
+	then
+		npcBot:Action_UseAbility(abilityExort);
+		npcBot:Action_UseAbility(abilityExort);
+		npcBot:Action_UseAbility(abilityExort);
+	end
+
+	-- TODO: Aghanim's Scepter will reduce the cool down time
+	npcBot:Action_UseAbility(abilityInvoke);
 end
